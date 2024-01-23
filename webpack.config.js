@@ -40,8 +40,6 @@ module.exports = {
           'cache-manager/package.json',
           'class-transformer/storage',
           'class-validator',
-          'hbs',
-          'ioredis',
         ];
         if (!lazyImports.includes(resource)) {
           return false;

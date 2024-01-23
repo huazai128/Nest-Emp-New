@@ -1,10 +1,12 @@
 const {
   defineConfig
 } = require('@efox/emp')
+
 const {
   cdn,
   esm
 } = require('./cdn')
+
 const webpack = require('webpack')
 const InlineCodePlugin = require('html-inline-code-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -12,15 +14,17 @@ const {
   TypedCssModulesPlugin
 } = require('typed-css-modules-webpack-plugin');
 
+
 const {
   join,
   resolve
 } = require('path')
 
 module.exports = defineConfig(({
-  mode
+  mode,
+  env
 }) => {
-  // const target = 'es2018'
+  process.env.EMP_ENV = env || 'dev'
   const target = 'es5'
   const isESM = !['es3', 'es5'].includes(target)
   return {
@@ -29,8 +33,9 @@ module.exports = defineConfig(({
       staticDir: '.',
       outDir: join(__dirname, "./dist/client"),
     },
+    name: 'nest-emp',
     server: {
-      port: 5003,
+      port: 8008,
       devMiddleware: {
         index: true,
         mimeTypes: {
@@ -50,7 +55,7 @@ module.exports = defineConfig(({
     html: {
       template: resolve('./views/index.html'),
       filename: resolve('./dist/views/index.html'),
-      title: '模板'
+      title: '基础架构框架'
     },
     webpackChain: (chain, config) => {
       // if (env !== 'dev') {
@@ -109,7 +114,7 @@ module.exports = defineConfig(({
       exposes: {
         './App': './src/App',
         // './Button': './src/Button',
-        './importExport/incStore': './src/store/incStore',
+        // './importExport/incStore': './src/store/incStore',
       },
       // shared: {
       //   react: {requiredVersion: '^17.0.1'},
@@ -119,13 +124,10 @@ module.exports = defineConfig(({
         cdn(mode) : {
           react: esm('react', mode, '17.0.2'),
           'react-dom': esm('react-dom', mode, '17.0.2'),
-          mobx: esm('mobx', mode, '6.3.7'),
+          mobx: esm('mobx', mode),
           'mobx-react-lite': esm('mobx-react-lite', mode),
         },
       // shareLib: cdn(mode),
-    },
-    html: {
-      title: 'Micro-Host'
     },
   }
 })
