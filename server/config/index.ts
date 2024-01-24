@@ -8,7 +8,7 @@ export const isProdEnv = Object.is(environment, 'prod')
 export const isTestEnv = Object.is(environment, 'test')
 
 export const APP = {
-  PORT: 5005,
+  PORT: 5006,
   DEFAULT_CACHE_TTL: 60 * 60 * 24,
 }
 

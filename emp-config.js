@@ -33,7 +33,6 @@ module.exports = defineConfig(({
       staticDir: '.',
       outDir: join(__dirname, "./dist/client"),
     },
-    name: 'nest-emp',
     server: {
       port: 8008,
       devMiddleware: {
@@ -124,8 +123,8 @@ module.exports = defineConfig(({
         cdn(mode) : {
           react: esm('react', mode, '17.0.2'),
           'react-dom': esm('react-dom', mode, '17.0.2'),
-          mobx: esm('mobx', mode),
-          'mobx-react-lite': esm('mobx-react-lite', mode),
+          mobx: esm('mobx', mode, 6),
+          'mobx-react-lite': esm('mobx-react-lite', mode, 6),
         },
       // shareLib: cdn(mode),
     },
