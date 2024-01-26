@@ -68,6 +68,7 @@
     "axios": "^0.21.4",
     "class-transformer": "^0.5.1",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.1",
     "ejs": "^3.1.9",
     "express-session": "^1.17.3",
     "helmet": "^7.1.0",

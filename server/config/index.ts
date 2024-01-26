@@ -1,4 +1,3 @@
-import { resolve } from 'path'
 import session from 'express-session'
 
 export const environment = process.env.NODE_ENV
@@ -35,7 +34,6 @@ export const SESSION: session.SessionOptions = {
   saveUninitialized: false,
   resave: false,
   cookie: {
-    // secure: true,
     sameSite: true,
     httpOnly: true,
     maxAge: 7 * 24 * 60 * 60 * 1000, // 设置session 过期时间
