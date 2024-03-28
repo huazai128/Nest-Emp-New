@@ -25,7 +25,7 @@ export const CROSS_DOMAIN = {
 //   password: config.redisConf.password,
 // }
 
-export const COOKIE_KEY = '@get-cookie-1212-dffas'
+export const COOKIE_KEY = '@get-cookie-basSSxsdasda-rqrqr-bxcbxc12446-fsdfsf-dffas'
 
 // session 配置
 export const SESSION: session.SessionOptions = {
