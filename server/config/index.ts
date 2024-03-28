@@ -1,29 +1,21 @@
 import session from 'express-session'
 
-export const environment = process.env.NODE_ENV
-// 运行环境
-export const isDevEnv = Object.is(environment, 'dev')
-export const isProdEnv = Object.is(environment, 'prod')
-export const isTestEnv = Object.is(environment, 'test')
-
 export const APP = {
   PORT: 5006,
   DEFAULT_CACHE_TTL: 60 * 60 * 24,
 }
 
 export const CROSS_DOMAIN = {
-  // 可以做redis 缓存
   // 允许访问的域名
   allowedOrigins: [''],
+  //
   allowedReferer: '',
 }
 
-// export const REDIS = {
-//   host: config.redisConf.host,
-//   port: config.redisConf.port,
-//   username: config.redisConf.username,
-//   password: config.redisConf.password,
-// }
+export const REDIS = {
+  host: '127.0.0.1',
+  port: 6379,
+}
 
 export const COOKIE_KEY = '@get-cookie-basSSxsdasda-rqrqr-bxcbxc12446-fsdfsf-dffas'
 
