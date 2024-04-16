@@ -5,9 +5,19 @@ import { AppService } from '@app/app.service'
 // middlewares
 import { CorsMiddleware } from './middlewares/cors.middlemare'
 import { OriginMiddleware } from './middlewares/origin.middlemare'
+import { RedisCoreModule } from './processors/redis/redis.module'
+import { retryStrategy } from './processors/redis/redis.util'
 
 @Module({
-  imports: [],
+  imports: [
+    RedisCoreModule.forRoot({
+      type: 'single',
+      url: 'redis://localhost:6379',
+      options: {
+        retryStrategy: retryStrategy,
+      },
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
