@@ -3,17 +3,19 @@ import { Injectable } from '@nestjs/common'
 import { Redis } from 'ioredis'
 import { createLogger } from '@app/utils/logger'
 import { isDevEnv } from '@app/app.env'
-import { isNil, isUndefined, UNDEFINED } from '@app/constants/value.constant'
+import { isNil, UNDEFINED } from '@app/constants/value.constant'
 import { RedisModuleOptions } from '@app/interfaces/redis.interfaces'
 
 const logger = createLogger({ scope: 'RedisService', time: isDevEnv })
 
 @Injectable()
 export class RedisService {
+  public client: Redis
   constructor(
     @InjectRedis() private readonly redis: Redis,
     @InjectRedisOptions() private readonly redisOptions: RedisModuleOptions,
   ) {
+    this.client = this.redis
     // 监听redis相关方法
     this.redis.on('connect', () => {
       logger.info('[Redis]', 'connecting...')

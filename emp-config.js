@@ -107,14 +107,14 @@ module.exports = defineConfig(({
         })
     },
     empShare: {
-      name: 'microHost',
+      name: 'microApp',
       // esm 共享需要设置 window
       // library: {name: 'microHost', type: 'window'},
-      exposes: {
-        './App': './src/App',
-        // './Button': './src/Button',
-        // './importExport/incStore': './src/store/incStore',
-      },
+      // exposes: {
+      // './App': './src/App',
+      // './Button': './src/Button',
+      // './importExport/incStore': './src/store/incStore',
+      // },
       // shared: {
       //   react: {requiredVersion: '^17.0.1'},
       //   'react-dom': {requiredVersion: '^17.0.1'},
