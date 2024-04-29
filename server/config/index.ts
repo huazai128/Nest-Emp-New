@@ -1,4 +1,9 @@
 import session from 'express-session'
+import { devConfig } from './dev.config'
+import { prodConfig } from './prod.config'
+import { isProdEnv } from '@app/app.env'
+
+export const config = isProdEnv ? prodConfig : devConfig
 
 export const APP = {
   PORT: 5006,
